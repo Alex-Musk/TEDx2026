@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mua ghế</title>
+    <link rel="stylesheet" href="css/seating-map.css">
+</head>
+
+<body>
+<div class="screen"></div>
+<div class="screen-text">SÂN KHẤU</div>
+<div class="seat-legend">
+    <div class="legend-item">
+        <div class="legend-seat"></div>
+        <span>Có thể chọn</span>
+    </div>
+
+    <div class="legend-item">
+        <div class="legend-seat occupied"></div>
+        <span>Không thể chọn</span>
+    </div>
+
+    <div class="legend-item">
+        <div class="legend-seat selected"></div>
+        <span>Đang chọn</span>
+    </div>
+</div>
+<div class="wrapper" id="wrapper">
+    <div id="seatContainer">
+        <div class="table-area">
+        <div class="fixed-table sponsor">
+            NHÀ TÀI TRỢ
+        </div>
+
+        <div class="fixed-table judge">
+            DIỄN GIẢ/KHÁCH MỜI
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="bottom-bar">
+    <div class="info">
+        <div class="first-info">
+            <div class="content">
+                Địa điểm: <b style="font-weight: 800;">ĐH Đông Á</b>
+            </div>
+            <div class="content">
+                Loại vé: <b style="font-weight: 800;">Regular</b>
+            </div>
+            <div class="content" style="margin-bottom: 0;">
+                Thời gian: <b style="font-weight: 800;">15h, 1/8/2026</b>
+            </div>
+        </div>
+        <div class="second-info">
+            <div id="selectedSeatsInfo">
+                Số ghế: 
+            </div>
+        <div id="eachpriceInfo">
+                Giá mỗi vé: <b style="font-weight: 800;">100.000 đ</b>
+                <hr style="margin-top: 5px;">
+            </div>
+            <div class="price" id="totalPrice">
+                Tổng: 0 đ
+            </div> 
+        </div>
+    </div>
+
+    <button class="pay-btn" onclick="openCheckout()">
+        <span style="font-size: 24px;">&#10095;</span> <br>
+        <span style="font-size: 18px; font-weight: 700; width: 100%; text-align: center;">Tiếp theo</span>
+    </button>
+</div>
+
+<div class="modal" id="checkoutModal">
+    <button class="close-btn" onclick="closeModal()">   ✕ </button>
+
+    <div class="modal-content">
+        <div class="checkout-layout">
+            <div class="left-panel">
+                <h2>Thông tin khách hàng</h2>
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <input id="fullname" type="text" placeholder="Nhập họ và tên" >
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input id="phone" type="text" placeholder="Nhập số điện thoại" >
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input id="email" type="email" placeholder="Nhập email" >
+                </div>
+            </div>
+            <div class="right-panel">
+                <h2>Thông tin đơn hàng</h2>
+                <div class="order-item">
+                    Ghế đã chọn
+                    <div class="order-value" id="modalSeats">
+                        -
+                    </div>
+                </div>
+                <div class="order-item inline">
+                    Số lượng vé
+                    <div class="order-value" id="modalQuantity">
+                        0
+                    </div>
+                </div>
+                <div class="order-item inline order-price">
+                    Giá mỗi vé
+                    <div class="order-value">
+                        100.000 đ
+                    </div>
+                </div>
+                <hr style="margin-bottom: 10px;">
+                <div class="order-item" style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px;">
+                    
+                    <p id="totalPriceLabel" style="opacity: 0.6;">Tổng giá vé: </p>
+                    <p id="discountLabel" style="opacity: 0.6; display: none;">Giảm giá: </p>
+                    
+                    <div class="order-value" id="modalTotal" style="font-size: 23px; font-weight: 800;">
+                        0 đ
+                    </div>
+                </div>
+            <div class="coupon-row">
+                <input
+                    type="text"
+                    id="coupon"
+                    placeholder="Nhập mã giảm giá">
+
+                <button
+                    type="button"
+                    id="applyCouponBtn">
+                    Áp dụng
+                </button>
+            </div>
+              <div class="payment-method">
+                <strong>Phương thức thanh toán</strong>
+                <br><br>
+                <div class="payment">
+                    <input type="radio" name="payment" id="payos" checked>
+                    <img src="/img/payment/thanhtoan.png" style="width:40px; height:auto;">
+                    <label for="payos">Quét mã QR thanh toán</label>
+                </div>
+            </div>
+            <div class="qr-box" id="qrBox">
+                <div class="qr-placeholder" id="embeded-payment-container"></div>
+
+                <p style="margin-top:15px">
+                    Quét mã để thanh toán
+                </p>
+
+                <div class="countdown-box">
+                    Thời gian còn lại:
+                    <span id="countdown">15:00</span>
+                </div>
+            </div>
+        <div id="button-container">
+          <button
+            type="submit"
+            id="create-payment-link-btn"
+             class="checkout-btn" onclick="validateAndShowQR()">
+            Thanh toán
+          </button>
+        </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/seating-map.js"></script>
+<script src="https://cdn.payos.vn/payos-checkout/v1/stable/payos-initialize.js"></script>
+<script src="pay.js"></script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:Arial, sans-serif;
+}      
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* ===== HEADER ===== */
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.5);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* ===== COMMON SECTION ===== */
+section{
+    min-height:100vh;
+    padding:120px 8% 80px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+h2{
+    font-size:40px;
+    margin-bottom:30px;
+}
+
+.placeholder{
+    height:400px;
+    border:2px dashed rgba(255,255,255,.3);
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:rgba(255,255,255,.5);
+}
+
+/* đường kẻ */
+.section-title{
+    text-align:center;
+    font-size:4rem;
+    font-weight:800;
+    color:#4d0d67;
+    margin-bottom:25px;
+}
+
+.title-divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:50px;
+    width:100%;
+}
+
+.title-divider .line{
+    width:60%;
+    max-width:1000px;
+    height:2px;
+    background:#e8e8e8;
+}
+
+.title-divider .diamond{
+    width:10px;
+    height:10px;
+    border:2px solid #e8e8e8;
+    transform:rotate(45deg);
+    flex-shrink:0;
+}
+
+/* =====================
+   PAST EVENTS
+===================== */
+
+#past-events{
+    background:#0d0024;
+    padding:100px 0;
+}
+
+.events-container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.events-container h2{
+    text-align:center;
+    color:#4d0d67;
+    font-size:3rem;
+    font-weight:800;
+    margin-bottom:50px;
+}
+
+.slider{
+    position:relative;
+    overflow:hidden;
+    max-width:800px;
+}
+
+.slides{
+    display:flex;
+    transition:0.8s ease;
+    height: 450px;
+}
+
+.event-card{
+    min-width:100%;
+    display:flex;
+    gap:40px;
+    align-items:center;
+
+    background:linear-gradient(
+        180deg,
+        #d7ecd8,
+        #d6b28f
+    );
+
+    padding:50px;
+    border-radius:30px;
+}
+
+.event-image{
+    flex:1;
+}
+
+.event-image img{
+    width:100%;
+    border-radius:10px;
+}
+
+.event-content{
+    flex:1;
+}
+
+.event-content h3{
+    font-size:2.2rem;
+    color:#4d0d67;
+    margin-bottom:15px;
+}
+
+.theme{
+    font-size:1.7rem;
+    margin-bottom:30px;
+}
+
+.event-content p{
+    color:#4d0d67;
+    margin-bottom:15px;
+}
+
+.event-btn{
+    display:inline-block;
+    margin-top:20px;
+
+    background:#7b1f53;
+    color:white;
+
+    text-decoration:none;
+
+    padding:15px 30px;
+    font-weight:700;
+}
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:50px;
+    height:50px;
+
+    border:none;
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:25px;
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
+}
+
+
+/* =====================
+   CTA
+===================== */
+
+.cta{
+    padding:0;
+    height:80vh;
+    background:
+    linear-gradient(
+        rgba(20,10,40,.55),
+        rgba(20,10,40,.55)
+    );
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.overlay{
+    background: linear-gradient(#140a2c99, #140a2c8f), url(../img/cta/back.png) center/cover no-repeat;
+    text-align:center;
+    width:100%;
+    height:80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.overlay h2{
+    color:white;
+    font-size:4rem;
+    font-weight:800;
+}
+
+.overlay h1{
+    color:white;
+    font-size:6rem;
+    font-weight:900;
+    margin:40px 0;
+}
+
+.buy-ticket{
+    display:inline-block;
+
+    padding:18px 40px;
+
+    background:#8a2359;
+    color:white;
+
+    text-decoration:none;
+
+    font-size:2rem;
+    font-weight:700;
+}
+
+
+/* =====================
+   FOOTER
+===================== */
+.footer{
+    background: linear-gradient( to bottom, #caf3da 0%, #c09668 100% );
+    color:#fff;
+    padding:60px 5%;
+}
+
+.footer-container{
+    max-width:1400px;
+    margin:auto;
+    color:#000000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+}
+
+.footer-about{
+    flex:1.5;
+}
+
+.footer-logo{
+    width:230px;
+    margin-bottom:30px;
+}
+
+.footer-about p{
+    font-size:1.1rem;
+    line-height:1.6;
+    margin-bottom:30px;
+    max-width:600px;
+}
+
+.footer-center{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.footer-center img{
+    max-width:180px;
+    max-height:180px;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+.footer-contact{
+    flex:1;
+}
+
+.footer-contact h3{
+    font-size:1.5rem;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:20px;
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    font-size:1.4rem;
+    margin-bottom:18px;
+}
+
+.contact-item i{
+    width:24px;
+}
+
+.social-title{
+    margin-top:50px;
+}
+
+.social-links{
+    display:flex;
+    gap:15px;
+}
+
+.social-links a{
+    width:50px;
+    height:50px;
+    border:1px solid rgba(255,255,255,.8);
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-decoration:none;
+    font-size:1.4rem;
+    transition:.3s;
+}
+
+.social-links a:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,.08);
+}
+
+/* =====================
+   MOBILE
+===================== */
+
+@media(max-width:768px){
+
+    .event-card{
+        flex-direction:column;
+    }
+
+    .events-container h2{
+        font-size:2rem;
+    }
+
+    .overlay h2{
+        font-size:2rem;
+    }
+
+    .overlay h1{
+        font-size:3rem;
+    }
+
+ .footer{
+        padding:60px 24px;
+    }
+
+    .footer-logo{
+        width:180px;
+    }
+
+    .footer-contact h2{
+        font-size:1.8rem;
+    }
+
+    .footer-about p{
+        font-size:1rem;
+    }
+
+    .contact-item{
+        font-size:1rem;
+        flex-wrap:wrap;
+    }
+
+    .footer-center img{
+        width:160px;
+        height:160px;
+    }
+
+    .social-links a{
+        width:55px;
+        height:55px;
+        font-size:1.5rem;
+    }
+}

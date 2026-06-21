@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tạo Link thanh toán</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Thêm chút CSS cho đồng hồ nổi bật */
+      .countdown-box {
+        background-color: #fff3cd;
+        color: #856404;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-box">
+      <div class="checkout">
+        
+        <div class="countdown-box">
+          Thời gian thanh toán còn lại: <span id="timer">15:00</span>
+        </div>
+
+        <div class="product">
+          <p><strong>Tên sản phẩm:</strong> Mì tôm Hảo Hảo ly</p>
+          <p><strong>Giá tiền:</strong> 2000 VNĐ</p>
+          <p><strong>Số lượng:</strong> 1</p>
+        </div>
+
+        <form action="/create-payment-link" method="post">
+          <button type="submit" id="create-payment-link-btn">
+            Tạo Link thanh toán
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // 15 phút = 15 * 60 giây
+      let timeInSeconds = 15 * 60; 
+      const timerElement = document.getElementById('timer');
+
+      const countdown = setInterval(() => {
+        let minutes = Math.floor(timeInSeconds / 60);
+        let seconds = timeInSeconds % 60;
+
+        // Thêm số 0 phía trước nếu số < 10 (Ví dụ: 09:05)
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        // Hiển thị lên giao diện
+        timerElement.textContent = `${minutes}:${seconds}`;
+
+        // Khi hết thời gian
+        if (timeInSeconds <= 0) {
+          clearInterval(countdown);
+          timerElement.textContent = "Đã hết hạn!";
+          // Vô hiệu hóa nút bấm không cho thanh toán nữa
+          document.getElementById('create-payment-link-btn').disabled = true;
+          alert('Đơn hàng của bạn đã hết hạn thanh toán, vui lòng tải lại trang!');
+        }
+
+        timeInSeconds--;
+      }, 1000); // Chạy lại sau mỗi 1 giây (1000ms)
+    </script>
+  </body>
+</html>

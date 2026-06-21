@@ -1,0 +1,429 @@
+:root{
+    --theme-color: #140a2c;
+    --secondary-color: linear-gradient( to bottom, #caf3da 0%, #c09668 100% );
+    
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background: linear-gradient(#140a2c99, #140a2c), url(../img/general/background.png) center center / cover no-repeat;
+    color:white;
+    overflow:hidden;
+}
+
+.inline{
+    display:inline-block;
+}
+
+/* Màn hình */
+
+.screen{
+    width:50%;
+    height:18px;
+    background:white;
+    margin:20px auto;
+    border-radius:50%;
+    box-shadow:0 0 25px white;
+}
+
+.screen-text{
+    text-align:center;
+    margin-bottom:20px;
+    color:#aaa;
+}
+.seat-legend{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin:20px 0;
+    flex-wrap:wrap;
+}
+
+.legend-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#fff;
+    font-size:14px;
+}
+
+.legend-seat{
+    width:20px;
+    height:20px;
+    border-radius:4px;
+    border:1px solid #ffffff66;;
+    
+}
+
+.legend-seat.occupied{
+    background:#b2512b;
+    
+}
+
+.legend-seat.selected{
+    background:#ccecd2;
+   
+}
+
+/* Khu vực zoom */
+.table-area{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    margin:20px 0 15px;
+}
+
+.fixed-table{
+    font-size:12px;
+    width:250px;
+    height:20px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    color:#fff;
+    box-shadow:0 4px 12px rgba(0,0,0,.2);
+}
+
+.sponsor, .judge{
+    box-shadow: 0 0 25px white;
+    background: white;
+    color:var(--theme-color)
+}
+.wrapper{
+    /* background: linear-gradient( rgba(0,0,0,0.45), rgba(0,0,0,0.45) ), url('../img/general/background.png') center center/cover no-repeat; */
+    width:100vw;
+    height:calc(100vh - 140px);
+    overflow:hidden;
+    position:relative;
+}
+
+#seatContainer{
+    position:absolute;
+    left:50%;
+    top:40%;
+    transform:translate(-50%,-50%);
+    cursor:grab;
+    width: 100%;
+    height: 80%;
+}
+
+.row{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    margin-bottom:8px;
+}
+
+.seat{
+    width:42px;
+    height:28px;
+
+    border-radius:6px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:10px;
+    font-weight:600;
+
+    color:white;
+    border: 1px solid #ffffff66;
+}
+
+.seat:hover{
+    transform:scale(1.15);
+}
+
+.selected{
+    background:#ccecd2;
+    color:var(--theme-color);
+}
+
+.sold{
+    background:#b2512b;
+    cursor:not-allowed;
+}
+
+.aisle{
+    width:35px;
+}
+
+/* Thanh dưới */
+
+.bottom-bar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:110px;
+    background: var(--theme-color);
+    border-top:1px solid #333;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0px 20px;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.price{
+    font-size:22px;
+    font-weight:bold;
+        color: #caf3da;
+}
+
+.pay-btn{
+    border:none;
+    background:var(--secondary-color);
+    color:var(--theme-color);
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    width: 15%;
+    max-width: 150px;
+}
+
+.pay-btn:hover{
+    opacity:.9;
+}
+
+@media(max-width:768px){
+
+    .aisle{
+        width:25px;
+    }
+
+    .price{
+        font-size:18px;
+    }
+
+}
+
+.content{
+    margin-bottom:8px;
+}
+
+#selectedSeatsInfo{
+    font-size: 14px;
+    margin-bottom: 5px;
+    max-width: 250px;
+}
+#eachpriceInfo{
+    font-size: 14px;
+    margin-bottom:10px;
+}
+@media(max-width:768px){
+
+    .bottom-bar{
+        height:auto;
+        padding:12px;
+    }
+    .seat{
+        width:32px;
+        height:22px;
+        font-size:8px;
+    }
+    .info{
+        width:70%;
+    }
+
+    .pay-btn{
+        padding:12px 18px;
+    }
+
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    overflow-y: auto; /* cho phép cuộn */
+}
+/* .modal-content::-webkit-scrollbar {
+    display: none;
+} */
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    width:90%;
+    max-width:1000px;
+    background:#1b1b1b;
+    border-radius:16px;
+    overflow:hidden;
+    max-height: 85%;
+     overflow-y: auto; /* cho phép cuộn */
+}
+
+.checkout-layout{
+    display:flex;
+}
+
+.left-panel,
+.right-panel{
+    padding:25px;
+}
+
+.left-panel{
+    flex:1.2;
+    border-right:1px solid #333;
+}
+
+.right-panel{
+    flex:1;
+}
+
+.left-panel h2,
+.right-panel h2{
+    margin-bottom:20px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    color:#aaa;
+}
+
+.form-group input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#2a2a2a;
+    color:white;
+}
+
+.order-item{
+    margin-bottom:15px;
+}
+
+.order-value{
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.order-price{
+    margin-left:100px;
+}
+
+.coupon-row{
+    display:flex;
+    gap:10px;
+}
+
+.coupon-row input{
+    flex:1;
+    border-radius: 15px;
+    padding: 10px;
+    background: #dae4de;
+}
+
+.coupon-row #applyCouponBtn{
+    padding:10px 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color:  #dae4de;
+    
+}
+
+.payment-method{
+    margin-top:20px;
+    padding:15px;
+    border:1px solid #333;
+    border-radius:10px;
+}
+.payment{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+}
+.qr-box{
+    display:none;
+    margin-top:20px;
+    text-align:center;
+}
+
+.qr-placeholder{
+    height:390px;
+    margin:auto;
+    background:#fff;
+    border-radius:10px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#000;
+    font-weight:bold;
+}
+
+.countdown-box{
+    margin-top:12px;
+    text-align:center;
+    font-weight:700;
+    font-size:18px;
+}
+
+.checkout-btn{
+    width:100%;
+    margin-top:20px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#0066ff;
+    color:white;
+    cursor:pointer;
+}
+
+.close-btn{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:#333;
+    color:white;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+    .checkout-layout{
+        flex-direction:column;
+    }
+
+    .left-panel{
+        border-right:none;
+        border-bottom:1px solid #333;
+    }
+
+}
