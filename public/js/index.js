@@ -17,17 +17,17 @@ const speakers = [
     {
         name: "Dương Thị Thu Thảo",
         title: "Speaker TEDx AkoDhong Youth 2025",
-        image: "../public/img/speakers/thuthao.jpeg"
+        image: "../public/img/speakers/thuthao.jpg"
     },
         {
         name: "Dương Thị Thu Thảo",
         title: "Speaker TEDx AkoDhong Youth 2025",
-        image: "../public/img/speakers/thuthao.jpeg"
+        image: "../public/img/speakers/thuthao.jpg"
     },
         {
         name: "Dương Thị Thu Thảo",
         title: "Speaker TEDx AkoDhong Youth 2025",
-        image: "../public/img/speakers/thuthao.jpeg"
+        image: "../public/img/speakers/thuthao.jpg"
     }
 ];
 
@@ -53,7 +53,6 @@ speakers.forEach(speaker => {
 $('.speaker-carousel').owlCarousel({
     loop: true,
     center: true,
-    items: 5,
     margin: 20,
     dots: true,
     nav: false,
@@ -61,7 +60,21 @@ $('.speaker-carousel').owlCarousel({
     autoplay: true,
     autoplayTimeout: 3000,
 
-    responsive:{
-        0:{ items:5 }
+    responsive: {
+        0: {
+            items: 1
+        },
+        576: {
+            items: 2
+        },
+        768: {
+            items: 3
+        },
+        992: {
+            items: 4
+        },
+        1200: {
+            items: 5
+        }
     }
 });

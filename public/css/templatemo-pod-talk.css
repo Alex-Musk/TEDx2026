@@ -1,20 +1,82 @@
-/*
 
-TemplateMo 584 Pod Talk
-
-https://templatemo.com/tm-584-pod-talk
-
-*/
-
-
-
-/*---------------------------------------
-  CUSTOM PROPERTIES ( VARIABLES )             
------------------------------------------*/
 @font-face {
-  font-family: 'DFVN Boris';
-  src: url('../fonts/DFVN Boris.otf') format('truetype');
+    font-family: 'Helvetica';
+    src: url('../fonts/helvetica/Helvetica.eot');
+    src: local('Helvetica'),
+        url('../fonts/helvetica/Helvetica.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/helvetica/Helvetica.woff2') format('woff2'),
+        url('../fonts/helvetica/Helvetica.woff') format('woff'),
+        url('../fonts/helvetica/Helvetica.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/helvetica/Helvetica-Oblique.eot');
+    src: local('Helvetica Oblique'), local('Helvetica-Oblique'),
+        url('../fonts/helvetica/Helvetica-Oblique.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/helvetica/Helvetica-Oblique.woff2') format('woff2'),
+        url('../fonts/helvetica/Helvetica-Oblique.woff') format('woff'),
+        url('../fonts/helvetica/Helvetica-Oblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/helvetica/Helvetica-BoldOblique.eot');
+    src: local('Helvetica Bold Oblique'), local('Helvetica-BoldOblique'),
+        url('../fonts/helvetica/Helvetica-BoldOblique.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/helvetica/Helvetica-BoldOblique.woff2') format('woff2'),
+        url('../fonts/helvetica/Helvetica-BoldOblique.woff') format('woff'),
+        url('../fonts/helvetica/Helvetica-BoldOblique.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/helvetica/Helvetica-Light.eot');
+    src: local('Helvetica Light'), local('Helvetica-Light'),
+        url('../fonts/helvetica/Helvetica-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/helvetica/Helvetica-Light.woff2') format('woff2'),
+        url('../fonts/helvetica/Helvetica-Light.woff') format('woff'),
+        url('../fonts/helvetica/Helvetica-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/helvetica/Helvetica-Bold.eot');
+    src: local('Helvetica Bold'), local('Helvetica-Bold'),
+        url('../fonts/helvetica/Helvetica-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/helvetica/Helvetica-Bold.woff2') format('woff2'),
+        url('../fonts/helvetica/Helvetica-Bold.woff') format('woff'),
+        url('../fonts/helvetica/Helvetica-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/helvetica/Helvetica-LightOblique.eot');
+    src: local('Helvetica Light Oblique'), local('Helvetica-LightOblique'),
+        url('../fonts/helvetica/Helvetica-LightOblique.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/helvetica/Helvetica-LightOblique.woff2') format('woff2'),
+        url('../fonts/helvetica/Helvetica-LightOblique.woff') format('woff'),
+        url('../fonts/helvetica/Helvetica-LightOblique.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
 
 :root {
   --theme-color:                  #140a2c;
@@ -29,8 +91,8 @@ https://templatemo.com/tm-584-pod-talk
   --link-hover-color:             #969696;
 
   
-  --body-font-family:             'Montserrat', sans-serif;
-  --title-font-family:            'Montserrat', sans-serif;
+  --body-font-family:             'Helvetica', sans-serif;
+  --title-font-family:            'Helvetica', sans-serif;
 
   --h1-font-size:                 58px;
   --h2-font-size:                 46px;
@@ -262,7 +324,7 @@ main {
 -----------------------------------------*/
 
 .custom-navbar {
-      background: linear-gradient(186deg, #dbe2c8, #bd9c63);
+  background: linear-gradient(257deg, #dbe2c8, #d8c39f);
   border-bottom: none;
   position: relative;
   z-index: 1000;
@@ -285,7 +347,7 @@ main {
 
 .nav-toggle-label {
   font-size: 26px;
-  color: var(--secondary-color);
+  color: var(--theme-color);
   cursor: pointer;
   display: block;
   position: relative;
@@ -301,7 +363,7 @@ main {
   position: absolute;
   width: 100%;
   height: 3px;
-  background-color: var(--secondary-color);
+  background-color: var(--theme-color);
   border-radius: 2px;
   transition: all 0.4s ease;
 }
@@ -345,7 +407,7 @@ main {
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   border-radius: 10px;
   padding: 10px;
-  background-color: #99221b;
+  background: linear-gradient(180deg, #dbe2c8, #d8c39f);
   z-index: 1000;
 }
 .nav-menu a.active::before {
@@ -361,7 +423,7 @@ main {
   font-family: var(--title-font-family);
   font-size: 20px;
   color: var(--secondary-color);
-  font-weight: 500;
+  font-weight: 800;
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -378,18 +440,18 @@ main {
   width: 100%;
   height: 100%;
   border-radius: 30px;
-  background: #f7cc54;
+  background: var(--theme-color);
   opacity: 0;
   z-index: -1;
   transition: opacity 0.4s ease;
 }
 
 .nav-menu a:hover::before {
-  opacity: 1;
+  opacity: 1;  
 }
 
 .nav-menu a:hover {
-  color: black;
+  color: #ccecd2;
 }
 
 ul {
@@ -399,7 +461,7 @@ ul {
 /* Khi toggle bật → hiển thị menu */
 #nav-toggle:checked ~ .nav-menu {
   display: flex !important;
-  width: 200px;
+  width: 170px;
 }
 
 /* Desktop: ẩn toggle, hiện menu ngang */
@@ -417,11 +479,13 @@ ul {
     border-radius: 0;
     padding: 0;
     width: auto !important;
+      background: none !important;
     background-color: transparent !important;
   }
 
   .nav-menu li {
-    margin: 0;
+        display: flex;
+    align-items: center;
   }
 }
 
